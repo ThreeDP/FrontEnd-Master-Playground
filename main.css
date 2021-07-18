@@ -64,6 +64,8 @@ body {
     list-style: none;
 }
 
+/* flex: 1, 2 ou 3 faz com que o elemento pego o maximo de espaço possivel
+quanto maior o numero maior o espaço do elemento */
 .sections {
     display: flex;
     align-items: center;
@@ -76,7 +78,7 @@ body {
     background-color: #FF665A;
 }
 
-
+/* Altera o estilo dos filhos de sections de acordo com a ordem */
 .sections:nth-child(1) { background-color: #8C8C8C;}
 .sections:nth-child(2) { background-color: #404040;}
 .sections:nth-child(3) { background-color: #333333;}
@@ -89,5 +91,7 @@ body {
     padding-left: 10px;
     font-weight: 900;
     font-family: "Futura";
-    
+    text-decoration: none;
+    color: currentColor;    /* Mantem a cor anterior no caso a cor definida em*/
 }
+
