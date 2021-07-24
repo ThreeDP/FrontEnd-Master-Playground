@@ -133,6 +133,15 @@ quanto maior o numero maior o espaço do elemento */
     font-size: 25px;
 }
 
+.vision {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.display-calc .vision-result {
+    font-size: 16px;
+}
+
 .key {
     font-size: 22px;
     font-weight: bold;

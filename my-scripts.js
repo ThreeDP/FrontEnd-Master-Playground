@@ -1,5 +1,6 @@
 const resultButton = document.querySelector('.result-button');
-const vision = document.querySelector('.vision');
+const visionCalc = document.querySelector('.vision-calc');
+const visionResult = document.querySelector('.vision-result');
 
 let calculate = {
     caracterAction: '/',
@@ -37,9 +38,12 @@ function resultCalc () {
     } else {
         return;
     }
-    vision.innerText = result;
+    visionResult.innerText = result;
+    visionCalc.innerText = 0;
 };
 
+
+// defiine qual o tipo de button de entrada.
 document.querySelector('.calc').addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON') {
         // Pega a ultima class da propriedade Class
