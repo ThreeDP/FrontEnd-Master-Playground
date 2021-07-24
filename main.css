@@ -117,6 +117,7 @@ quanto maior o numero maior o espaço do elemento */
 
 .calc .struct-calc {
     display: flex;
+    flex-wrap: wrap;
     flex: 1;
     border-bottom: solid black 2px;
 }
