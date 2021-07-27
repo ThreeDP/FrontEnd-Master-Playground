@@ -27,6 +27,7 @@ function calcDiv(n1, n2) {
 // Click do botão de resultado na calculadora.
 function resultCalc () {
     let result = 0;
+    calculate.secondNum = parseInt(visionCalc.innerText)
     if (calculate.caracterAction == "+") {
         result = calcSum(calculate.firstNum, calculate.secondNum);
     } else if ( calculate.caracterAction == "-") {
@@ -39,6 +40,8 @@ function resultCalc () {
         return;
     }
     visionResult.innerText = result;
+    calculate.firstNum = parseInt(result);
+    calculate.caracterAction = " ";
     visionCalc.innerText = 0;
 };
 
@@ -51,16 +54,37 @@ function enterNum (num) {
     }
 }
 
+// Função para funções matematica
 function operationAction (operator) {
+
     if (visionResult.innerText.substring(0, 1) === "0" ) {
         calculate.caracterAction = operator;
         calculate.firstNum = parseInt(visionCalc.innerText)
         visionResult.innerText = visionCalc.innerText + " " + operator + " ";
-    } else {
-        calculate.secondNum = parseInt(visionCalc.innerText)
+    } else if (calculate.firstNum != 0) {
         resultCalc();
+        calculate.caracterAction = operator;
+        visionResult.innerText = calculate.firstNum + " " + operator + " ";
     }
     visionCalc.innerText = 0;
+}
+
+// Limpa todo o log de operações
+function deleteAll() {
+    calculate.firstNum = 0;
+    calculate.secondNum = 0;
+    calculate.caracterAction = " ";
+    visionCalc.innerText = 0;
+    visionResult.innerText = 0;
+}
+
+
+// Função para apagar o ultimo caracter de visionCalc
+function correctCaracter() {
+    visionCalc.innerText = visionCalc.innerText.substring(0, visionCalc.innerText.length - 1)
+    if (visionCalc.innerText === "") {
+        visionCalc.innerText = 0;
+    }
 }
 
 // defiine qual o tipo de button de entrada.
@@ -80,11 +104,10 @@ document.querySelector('.calc').addEventListener('click', function(event) {
             resultCalc();
 
         } else if (classNameButton.substring(index) === 'correct-button') {
-            alert("correção")
+            correctCaracter();
 
         } else if (classNameButton.substring(index) === 'del-button') {
-            alert("delete")
-
+            deleteAll();
         }
     }
     
